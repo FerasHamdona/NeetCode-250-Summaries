@@ -111,3 +111,133 @@ public class Solution {
 Time complexity:  O(n)
 
 Space complexity:  O(1)
+
+
+
+# 125. Valid Palindrome
+![Screenshot_2025-04-08-20-30-43-937_com.android.chrome-edit](_res/Screenshot_2025-04-08-20-30-43-937_com.android.chrome-edit.jpg)
+
+<div dir="rtl">
+تعتبر الجمله ( palindrome ) اذا , بعد تحويل جميع الحروف الكبيرة إلى صغيرة وإزالة جميع الأحرف غير الأبجدية الرقمية ( non-alphanumeric )  ، تُقرأ بنفس الطريقة للأمام والخلف.
+ تشمل الأحرف الأبجدية الرقمية ( Alphanumeric ) الحروف والأرقام.  
+
+</div>
+
+## solutions
+
+### 1. Reverse String
+```java
+public class Solution {
+    public boolean isPalindrome(String s) {
+        StringBuilder newStr = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                newStr.append(Character.toLowerCase(c));
+            }
+        }
+        return newStr.toString().equals(newStr.reverse().toString());
+    }
+}
+```
+#### Time & Space Complexity
+Time complexity:  O(n)
+
+Space complexity:  O(n)
+
+### 2. Two Pointers
+```java
+public class Solution {
+    public boolean isPalindrome(String s) {
+        int l = 0, r = s.length() - 1;
+
+        while (l < r) {
+            while (l < r && !alphaNum(s.charAt(l))) {
+                l++;
+            }
+            while (r > l && !alphaNum(s.charAt(r))) {
+                r--;
+            }
+            if (Character.toLowerCase(s.charAt(l)) != Character.toLowerCase(s.charAt(r))) {
+                return false;
+            }
+            l++; r--;
+        }
+        return true;
+    }
+
+    public boolean alphaNum(char c) {
+        return (c >= 'A' && c <= 'Z' || 
+                c >= 'a' && c <= 'z' || 
+                c >= '0' && c <= '9');
+    }
+}
+```
+#### Time & Space Complexity
+Time complexity: O(n)
+
+Space complexity:  O(1)
+
+
+<br>
+<div dir="rtl">
+حل تاني الطف شوي ( حلى 😁 )
+</div>
+
+```java
+public class Solution {
+    public boolean isPalindrome(String s) {
+        s = s.toLowerCase();
+        int length = s.length();
+        int l = 0, r = length - 1;
+        char lChar, rChar;
+        while(l<r){
+            lChar = s.charAt(l);
+            rChar = s.charAt(r);
+            
+            if(!alphaNum(lChar)){
+                l++;
+                continue;
+            }
+            if(!alphaNum(rChar)){
+                r--;
+                continue;
+            }
+            
+            if(lChar != rChar)
+                return false;
+            
+            l++;
+            r--;
+        }
+        return true;
+    }
+
+    public boolean alphaNum(char c) {
+        return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
+    }
+}
+```
+#### Time & Space Complexity
+Time complexity: O(n)
+
+Space complexity:  O(1)
+
+## Additional Solutions ...
+
+### 3. Regular Expression & Reverse String
+
+```java
+public class Solution {
+    public boolean isPalindrome(String s) {
+      
+        s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        
+        StringBuilder reversed = new StringBuilder(s).reverse();
+        return s.equals(reversed.toString());
+    }
+}
+```
+#### Time & Space Complexity
+Time complexity: O(n)
+
+Space complexity:  O(n)
