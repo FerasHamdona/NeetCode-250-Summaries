@@ -23,7 +23,7 @@ public class Solution {
     }
 }
 ```
-### Time & Space Complexity 
+#### Time & Space Complexity 
 Time complexity:  O(n)
 
 Space complexity:  O(n)
@@ -45,7 +45,7 @@ public class Solution {
     }
 }
 ```
-### Time & Space Complexity 
+#### Time & Space Complexity 
 Time complexity:  O(n)
 
 Space complexity:  O(n) for recursion stack.
@@ -65,7 +65,7 @@ public class Solution {
     }
 }
 ```
-### Time & Space Complexity 
+#### Time & Space Complexity 
 Time complexity:  O(n)
 
 Space complexity:  O(n)
@@ -87,7 +87,7 @@ public class Solution {
 }
 ```
 
-### Time & Space Complexity 
+#### Time & Space Complexity 
 Time complexity:  O(n)
 
 Space complexity:  O(n)
@@ -107,7 +107,7 @@ public class Solution {
     }
 }
 ```
-### Time & Space Complexity
+#### Time & Space Complexity
 Time complexity:  O(n)
 
 Space complexity:  O(1)
